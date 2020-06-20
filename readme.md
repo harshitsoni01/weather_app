@@ -1,6 +1,6 @@
 # weather app
 
-## weather divide based on ids
+## weather divide based on id_code
 
 ### if else divided on the bases of weather_decription and temperature
 
