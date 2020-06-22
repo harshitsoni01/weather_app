@@ -1,6 +1,9 @@
 # Python program to find current weather details of any city using openweathermap api
 # 60 calls/min and 1,000,000 calls/month
 import requests, json 
+import weatherMappingMessage
+
+
 api_key = "b03aae2dd0d2c016e48d6fc50ec429f2"
 base_url = "http://api.openweathermap.org/data/2.5/weather?"
 city_name = input("Enter city name : ") 
@@ -55,19 +58,16 @@ temp = int(temperature_condition())
 query = int(weather_condition())
 
 index = temp//5
-f = open('backend.json')
-backend = json.load(f)
-print(type(backend))
+weather_message = weatherMappingMessage.weather_message_dict
+
 def clothes():
-    print(backend[index])
     #if query in range(200,203) or query in range(230,233):#thunderstorm1 with rain
-    if index in backend:
-        print(backend[index])
+    if index in weather_message:
+        print(weather_message[index])
     else:
         print("WARNING!! DON'T GO OUT!!"
                 "\n Protect yourself from the extreme temperature.")
 clothes()
-f.close()
 #     elif query in range(210,212):#thunderstorm2
 #         print("Expect Rain.")
 #         if temp in range(-20,-10):
