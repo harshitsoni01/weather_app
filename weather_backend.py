@@ -65,361 +65,150 @@ weather_message = ""
 def clothes():
     if query in range(200,203) or query in range(230,233):#thunderstorm1 with rain
         if index in weather_message_map:
-            weather_message = weather_message_map[index] + "Wear a gum boot and Carry an umbrella"
+            weather_message = weather_message_map[index] + "\nWear Gum Boots and Carry an umbrella"
             print(weather_message) 
         else:
             print("WARNING!! DON'T GO OUT!!"
                     "\n Protect yourself from the extreme temperature.")
-    elif query in range(800, 801):#thunderstorm2
+    elif query in range(210, 212):#thunderstorm2
         if index in weather_message_map:
-            weather_message = weather_message_map[index] + "Dont carry a gum boot or an umbrella"
+            weather_message = weather_message_map[index] + "\nCarry a Umbrella" 
             print(weather_message)
         else:
             print("WARNING!! DON'T GO OUT!!"
                     "\n Protect yourself from the extreme temperature.")
-#         else:
-#             print("WARNING!! DON'T GO OUT!!"
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Protect yourself from the Extreme Temperature.")
-#     elif query in range(212,222):#thunderstorm3
-#         print("WARNING!Heavy thunderstorm outside."
-#                 "\n You might be more safe inside."
-#                 "\n Stay inside for atleast 30 minutes after the last strike.")
-#         if temp in range(-20,-10):
-#             print("WARNING!! DON'T GO OUT!"
-#                     "\n Wear atleast 4 layers of clothing."
-#                     "\n And atleast 3 layers on your head."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(-10,0):
-#             print("WARNING!! TEMPERATURE LESS THAN ZERO!"
-#                     "\n Wear atleast 3 layers of clothing."
-#                     "\n And atleast 2 layers on your head."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(0,5):
-#             print("Wear atleast 2 layers of clothing."
-#                     "\n And atleast 1 layers on your head."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(5,10):
-#             print("Wear atleast 2 layers of clothing."
-#                     "\n And atleast 1 layers on your head."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(10,15):
-#             print("Wear atleast 2 layers of clothing."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(15,20):
-#             print("Wear a coat or sweater."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(20,25):
-#             print("Wear some light clothes."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(25,30):
-#             print("Wear light clothes."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(30,35):
-#             print("Wear lightweight clothes."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(35,40):
-#             print("Wear Lightweight running pants or capris with a long sleeve shirt or t-shirt."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(40,45):
-#             print("Wear Lightweight capris or shorts with a long-sleeve shirt or t-shirt."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         else:
-#             print("WARNING!! DON'T GO OUT!!"
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Protect yourself from the Extreme temperature.")        
-#     elif query in range(300,314):#drizzle rain except for heavy drizzle rains
-#         if temp in range(-20,-10):
-#             print("WARNING!! DON'T GO OUT!"
-#                     "\n Wear atleast 4 layers of clothing."
-#                     "\n And atleast 3 layers on your head."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(-10,0):
-#             print("WARNING!! TEMPERATURE LESS THAN ZERO!"
-#                     "\n Wear atleast 3 layers of clothing."
-#                     "\n And atleast 2 layers on your head."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(0,5):
-#             print("Wear atleast 2 layers of clothing."
-#                     "\n And atleast 1 layers on your head."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(5,10):
-#             print("Wear atleast 2 layers of clothing."
-#                     "\n And atleast 1 layers on your head."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(10,15):
-#             print("Wear atleast 2 layers of clothing."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(15,20):
-#             print("Wear a coat or sweater or a trench coat."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(20,25):
-#             print("Wear some light clothes."
-#                     "\n Carry a umbrella or wind-cheater or a trench coat."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(25,30):
-#             print("Wear light clothes and shorts or capris."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(30,35):
-#             print("Wear lightweight clothes."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(35,40):
-#             print("Wear Lightweight running pants or capris with a long sleeve shirt or t-shirt."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(40,45):
-#             print("Wear Lightweight capris or shorts with a long-sleeve shirt or t-shirt."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         else:
-#             print("WARNING!! DON'T GO OUT!!"
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Protect yourself from the Extreme temperature.")
-#     elif query in range(314,322) or query in range(500,502):#heavy drizzle and light rain
-#         if temp in range(-20,-10):
-#             print("WARNING!! DON'T GO OUT!"
-#                     "\n Wear atleast 4 layers of clothing."
-#                     "\n And atleast 3 layers on your head."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(-10,0):
-#             print("WARNING!! TEMPERATURE LESS THAN ZERO!"
-#                     "\n Wear atleast 3 layers of clothing."
-#                     "\n And atleast 2 layers on your head."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(0,5):
-#             print("Wear atleast 2 layers of clothing."
-#                     "\n And atleast 1 layers on your head."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(5,10):
-#             print("Wear atleast 2 layers of clothing."
-#                     "\n And atleast 1 layers on your head."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(10,15):
-#             print("Wear atleast 2 layers of clothing."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(15,20):
-#             print("Wear a coat or sweater or a trench coat."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(20,25):
-#             print("Wear some light clothes."
-#                     "\n Carry a umbrella or wind-cheater or a trench coat."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(25,30):
-#             print("Wear light clothes and shorts or capris."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(30,35):
-#             print("Wear lightweight clothes."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(35,40):
-#             print("Wear Lightweight running pants or capris with a long sleeve shirt or t-shirt."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(40,45):
-#             print("Wear Lightweight capris or shorts with a long-sleeve shirt or t-shirt."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         else:
-#             print("WARNING!! DON'T GO OUT!!"
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Protect yourself from the Extreme temperature.")
-#     elif query in range(502,504) or query in range(520,523):#heavy rain
-#         if temp in range(-20,-10):
-#             print("WARNING!! DON'T GO OUT!"
-#                     "\n Wear atleast 4 layers of clothing."
-#                     "\n And atleast 3 layers on your head."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(-10,0):
-#             print("WARNING!! TEMPERATURE LESS THAN ZERO!"
-#                     "\n Wear atleast 3 layers of clothing."
-#                     "\n And atleast 2 layers on your head."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(0,5):
-#             print("Wear atleast 2 layers of clothing."
-#                     "\n And atleast 1 layers on your head."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(5,10):
-#             print("Wear atleast 2 layers of clothing."
-#                     "\n And atleast 1 layers on your head."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(10,15):
-#             print("Wear atleast 2 layers of clothing."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(15,20):
-#             print("Wear a coat or sweater or a trench coat."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(20,25):
-#             print("Wear some light clothes."
-#                     "\n Carry a umbrella or wind-cheater or a trench coat."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(25,30):
-#             print("Wear light clothes and shorts or capris."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(30,35):
-#             print("Wear lightweight clothes."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(35,40):
-#             print("Wear Lightweight running pants or capris with a long sleeve shirt or t-shirt."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(40,45):
-#             print("Wear Lightweight capris or shorts with a long-sleeve shirt or t-shirt."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         else:
-#             print("WARNING!! DON'T GO OUT!!"
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Protect yourself from the Extreme temperature.")
-#     elif query in range(504,505) or query in range(531,532):#extreme rain
-#         if temp in range(-20,-10):
-#             print("WARNING!! DON'T GO OUT!"
-#                     "\n Wear atleast 4 layers of clothing."
-#                     "\n And atleast 3 layers on your head."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(-10,0):
-#             print("WARNING!! TEMPERATURE LESS THAN ZERO!"
-#                     "\n Wear atleast 3 layers of clothing."
-#                     "\n And atleast 2 layers on your head."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(0,5):
-#             print("Wear atleast 2 layers of clothing."
-#                     "\n And atleast 1 layers on your head."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(5,10):
-#             print("Wear atleast 2 layers of clothing."
-#                     "\n And atleast 1 layers on your head."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(10,15):
-#             print("Wear atleast 2 layers of clothing."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(15,20):
-#             print("Wear a coat or sweater or a trench coat."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(20,25):
-#             print("Wear some light clothes."
-#                     "\n Carry a umbrella or wind-cheater or a trench coat."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(25,30):
-#             print("Wear light clothes and shorts or capris."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(30,35):
-#             print("Wear lightweight clothes."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(35,40):
-#             print("Wear Lightweight running pants or capris with a long sleeve shirt or t-shirt."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(40,45):
-#             print("Wear Lightweight capris or shorts with a long-sleeve shirt or t-shirt."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         else:
-#             print("WARNING!! DON'T GO OUT!!"
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Protect yourself from the Extreme temperature.")
-#     elif query in range(511,512) or query in range(611,614):#freezing rain or sleet
-#         if temp in range(-20,-10):
-#             print("WARNING!! DON'T GO OUT!"
-#                     "\n Wear atleast 4 layers of clothing."
-#                     "\n And atleast 3 layers on your head."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(-10,0):
-#             print("WARNING!! TEMPERATURE LESS THAN ZERO!"
-#                     "\n Wear atleast 3 layers of clothing."
-#                     "\n And atleast 2 layers on your head."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(0,5):
-#             print("Wear atleast 2 layers of clothing."
-#                     "\n And atleast 1 layers on your head."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(5,10):
-#             print("Wear atleast 2 layers of clothing."
-#                     "\n And atleast 1 layers on your head."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(10,15):
-#             print("Wear atleast 2 layers of clothing."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(15,20):
-#             print("Wear a coat or sweater or a trench coat."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(20,25):
-#             print("Wear some light clothes."
-#                     "\n Carry a umbrella or wind-cheater or a trench coat."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(25,30):
-#             print("Wear light clothes and shorts or capris."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(30,35):
-#             print("Wear lightweight clothes."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(35,40):
-#             print("Wear Lightweight running pants or capris with a long sleeve shirt or t-shirt."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         elif temp in range(40,45):
-#             print("Wear Lightweight capris or shorts with a long-sleeve shirt or t-shirt."
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Wear Gum Boots.")
-#         else:
-#             print("WARNING!! DON'T GO OUT!!"
-#                     "\n Carry a umbrella or wind-cheater."
-#                     "\n Protect yourself from the Extreme temperature.")
+    elif query in range(212, 222):#thunderstorm3
+        if index in weather_message_map:
+            weather_message = "WARNING!Heavy thunderstorm outside.\n You might be more safe inside.\n Stay inside for atleast 30 minutes after the last strike." + weather_message_map[index] + "Carry a Umbrella"
+            print(weather_message)
+        else:
+            print("WARNING!! DON'T GO OUT!!"
+                    "\n Protect yourself from the extreme temperature.")
+    elif query in range(300, 312):#drizzle decreases visibility more rain 
+        if index in weather_message_map:
+            weather_message = weather_message_map[index] + "\nCarry a Umbrella" 
+            print(weather_message)
+        else:
+            print("WARNING!! DON'T GO OUT!!"
+                    "\n Protect yourself from the extreme temperature.")
+    elif query in range(312, 322):#heavy drizzle
+        if index in weather_message_map:
+            weather_message = weather_message_map[index] + "\nCarry a Umbrella.\nWear Gum Boots" 
+            print(weather_message)
+        else:
+            print("WARNING!! DON'T GO OUT!!"
+                    "\n Protect yourself from the extreme temperature.")
+    elif query in range(500, 502) or query in range(520,522):#rain 
+        if index in weather_message_map:
+            weather_message = weather_message_map[index] + "\nCarry a Umbrella" 
+            print(weather_message)
+        else:
+            print("WARNING!! DON'T GO OUT!!"
+                    "\n Protect yourself from the extreme temperature.")
+    elif query in range(502, 505) or query in range(522,532):#heavy rain and shower 
+        if index in weather_message_map:
+            weather_message = weather_message_map[index] + "\nCarry a Umbrella" 
+            print(weather_message)
+        else:
+            print("WARNING!! DON'T GO OUT!!"
+                    "\n Protect yourself from the extreme temperature.")
+    elif query == 511 or query in range(611, 614):#Freezing rain and sleet
+        if index in weather_message_map:
+            weather_message = weather_message_map[index] + "\nCarry a Umbrella and a windcheater.\n Wear Gum Boots" 
+            print(weather_message)
+        else:
+            print("WARNING!! DON'T GO OUT!!"
+                    "\n Protect yourself from the extreme temperature.")
+    elif query in range(600, 602) or query in range(615, 621):#Snow
+        if index in weather_message_map:
+            weather_message = weather_message_map[index] + "\nCarry a Umbrella" 
+            print(weather_message)
+        else:
+            print("WARNING!! DON'T GO OUT!!"
+                    "\n Protect yourself from the extreme temperature.")
+    elif query == 602 or query == 622:#Heavy snow 
+        if index in weather_message_map:
+            weather_message = weather_message_map[index] + "\nCarry a Umbrella" 
+            print(weather_message)
+        else:
+            print("WARNING!! DON'T GO OUT!!"
+                    "\n Protect yourself from the extreme temperature.")
+    elif query == 701:#mist 
+        if index in weather_message_map:
+            weather_message = weather_message_map[index]
+            print(weather_message)
+        else:
+            print("WARNING!! DON'T GO OUT!!"
+                    "\n Protect yourself from the extreme temperature.")
+    elif query == 741:#fog
+        if index in weather_message_map:
+            weather_message = weather_message_map[index] + "\nVisibility of your surrounding is subpar."
+            print(weather_message)
+        else:
+            print("WARNING!! DON'T GO OUT!!"
+                    "\n Protect yourself from the extreme temperature.")
+    elif query == 711:#smog 
+        if index in weather_message_map:
+            weather_message = weather_message_map[index] + "\nProtect your eyes and nose when going out."
+            print(weather_message)
+        else:
+            print("WARNING!! DON'T GO OUT!!"
+                    "\n Protect yourself from the extreme temperature.")
+    elif query == 721:#Haze 
+        if index in weather_message_map:
+            weather_message = weather_message_map[index] + "\nvisibility around your area is sub par"
+            print(weather_message)
+        else:
+            print("WARNING!! DON'T GO OUT!!"
+                    "\n Protect yourself from the extreme temperature.")
+    elif query == 731 or query == 751 or query == 761:#dust/sand 
+        if index in weather_message_map:
+            weather_message = weather_message_map[index] + "\nProtect your eyes and nose when going out.\nDust and sand in the atmosphere."
+            print(weather_message)
+        else:
+            print("WARNING!! DON'T GO OUT!!"
+                    "\n Protect yourself from the extreme temperature.")
+    elif query == 762:#volanic ash
+        if index in weather_message_map:
+            weather_message = "WARNING! Don't go out.\n volanic ash in your surrounding."+weather_message_map[index] + "\nvisibility around your area is sub par"
+            print(weather_message)
+        else:
+            print("WARNING!! DON'T GO OUT!!"
+                    "\n Protect yourself from the extreme temperature.")
+    elif query == 771:#squall 
+        if index in weather_message_map:
+            weather_message = "Expect precipitation" + weather_message_map[index] + "\nHigh speed winds.\nWear protective gears."
+            print(weather_message)
+        else:
+            print("WARNING!! DON'T GO OUT!!"
+                    "\n Protect yourself from the extreme temperature.")
+    elif query == 781:#tornado 
+        if index in weather_message_map:
+            weather_message = "WARNING!Don't go out." + weather_message_map[index] + "\nWear neccessary gears"
+            print(weather_message)
+        else:
+            print("WARNING!! DON'T GO OUT!!"
+                    "\n Protect yourself from the extreme temperature.")
+    elif query in range(800, 803):#clear/10-40clouds
+        if index in weather_message_map:
+            weather_message = weather_message_map[index]
+            print(weather_message)
+        else:
+            print("WARNING!! DON'T GO OUT!!"
+                    "\n Protect yourself from the extreme temperature.")
+    elif query in range(803,805):
+        if index in weather_message_map:
+            weather_message = weather_message_map[index] + "\nCloud surrounding."
+            print(weather_message)
+        else:
+            print("WARNING!! DON'T GO OUT!!"
+                    "\n Protect yourself from the extreme temperature.")
+
 # # gender = input("Enter your Gender:\n")
 # # #this can be made into select a gender or genders can be showed side by side
 # # gender = gender.lower()
 
 # # if gender == "man" or gender == "male" or gender == "m" or gender == "men":
 # #     men_clothes()
-
 
 clothes()
