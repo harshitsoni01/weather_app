@@ -2,9 +2,8 @@
 # 60 calls/min and 1,000,000 calls/month
 import requests, json 
 import weatherMappingMessage
+from keys import *
 
-
-api_key = "b03aae2dd0d2c016e48d6fc50ec429f2"
 base_url = "http://api.openweathermap.org/data/2.5/weather?"
 city_name = input("Enter city name : ") 
 
