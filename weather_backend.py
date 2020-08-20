@@ -202,6 +202,7 @@ def clothes():
         else:
             print("WARNING!! DON'T GO OUT!!"
                     "\n Protect yourself from the extreme temperature.")
+    return weather_message
 
 # # gender = input("Enter your Gender:\n")
 # # #this can be made into select a gender or genders can be showed side by side
