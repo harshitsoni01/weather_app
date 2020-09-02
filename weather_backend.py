@@ -5,9 +5,13 @@ import weatherMappingMessage
 from keys import *
 
 base_url = "http://api.openweathermap.org/data/2.5/weather?"
-city_name = input("Enter city name : ") 
+city_name = " "
+def name_city():
+    city_name = input("Enter city name : ") 
+    return city_name
+city = str(name_city())
 
-complete_url = base_url + "appid=" + api_key + "&q=" + city_name + "&units=metric" 
+complete_url = base_url + "appid=" + api_key + "&q=" + city + "&units=metric" 
 response = requests.get(complete_url) 
 
 x = response.json()
