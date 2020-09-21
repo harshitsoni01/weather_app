@@ -1,0 +1,62 @@
+body{
+    margin:0;
+    padding:0;
+}
+.head
+{
+    height: 100vh;
+    background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(../images/Season4.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    font-family: sans-serif;
+}
+h1
+{
+    color: #fff;
+    margin-bottom: 70px;
+    font-size: 45px;
+    letter-spacing: 2px;
+}
+h2
+{
+    color: #fff;
+    font-style: italic;
+}
+.search-field
+{
+    height: 40px;
+    width:100px;
+    padding: 10px;
+    border:none;
+    border-radius: 20px;
+    outline: none;
+    margin-left: 5px;
+}
+.location
+{
+    width: 350px;
+}
+.search-btn
+{
+    height: 40px;
+    width: 120px;
+    background: #0f52BA;
+    border: none;
+    color: #000;
+    border-radius: 20px;
+    margin-left: 15px;
+}
+.search-btn:hover
+{
+    background: #101E4E;
+    cursor: pointer;
+}
+.form-box
+{
+    background: rgba(0,0,0,0.5);
+    padding: 10px;
+    align-items: center;
+}

@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 
 <html lang="en">
-    <header>
+    <head>
         <title>Weather & dress</title>
         <meta name= "viewport" content = "width=device-width, initial-scale=1,shrink-to-fit=no">
-        <link rel = "stylesheet" href = "css/master.css">
+        <link rel = "stylesheet" href = "{{ url_for('static', filename='css/master.css') }}">
         
-    </header>
+    </head>
 
 <body>
-    <label for="site-search">Search the site:</label>
-    <input type="search" id="site-search" name="q" aria-label="Search through site content">
-    <button>Search</button>
-    <h2>The temperature is:</h2>
-    <h3>{{temp}}</h3>
+    <div class="head">
+        <form class="form" method="POST">
+            <h1>Get Weather and Dresses according to the Weather</h1>
+            <div class = "form-box">
+                <input type="text" class="search-field location" name= "city_name" placeholder="Location...">
+                <button class="search-btn" type="button"><a href="{{ url_for('dress') }}">search</a></button>
+            </div>
+        </form>
+    </div>
+<!--   <h2>The temperature is:</h2>
+    <h3>{{temp}}</h3> -->
     
 </body>
 

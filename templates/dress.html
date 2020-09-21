@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <title>Weather & dress</title>
+        <meta name= "viewport" content = "width=device-width, initial-scale=1,shrink-to-fit=no">
+        <link rel = "stylesheet" href = "{{ url_for('static', filename='css/master.css') }}">
+        
+    </head>
+
+<body>
+    <div class="head">
+        <h4>Temperature</h4>
+        <h5>{{ temp }}</h5>
+        <h4>Feels like</h4>
+        <h5>{{ feels_temperature }}</h5>
+        <h4>Weather description</h4>
+        <h5>{{ weather_description }}</h5>
+        <h4>Dress recommendations..</h4>
+        <h5>{{ message }}</h5>
+    </div>
+</body>
+
+</html>
