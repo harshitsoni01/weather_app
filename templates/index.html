@@ -10,17 +10,14 @@
 
 <body>
     <div class="head">
-        <form class="form" method="POST">
+        <form action= "/dress" class="form" method="POST">
             <h1>Get Weather and Dresses according to the Weather</h1>
             <div class = "form-box">
                 <input type="text" class="search-field location" name= "city_name" placeholder="Location...">
-                <button class="search-btn" type="button"><a href="{{ url_for('dress') }}">search</a></button>
+                <button class="search-btn" type="submit">Search</button>
             </div>
         </form>
     </div>
-<!--   <h2>The temperature is:</h2>
-    <h3>{{temp}}</h3> -->
-    
 </body>
 
 </html>

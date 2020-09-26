@@ -5,56 +5,59 @@ import weatherMappingMessage
 from keys import *
 
 base_url = "http://api.openweathermap.org/data/2.5/weather?"
-city_name = input("Enter city name : ")
 
-complete_url = base_url + "appid=" + api_key + "&q=" + city_name + "&units=metric" 
-response = requests.get(complete_url) 
 
-x = response.json()
+def weather_city(city_name):
+    complete_url = base_url + "appid=" + api_key + "&q=" + city_name + "&units=metric" 
+    response = requests.get(complete_url) 
 
-if x["cod"] != "404": 
-    y = x["main"]
-    b = x["wind"]
-    
-    wind_speed = b["speed"]
-    feels_temperature = y["feels_like"]
-    current_temperature = y["temp"]# [] is keys() method to call/add something
-    current_pressure = y["pressure"] 
-    current_humidiy = y["humidity"] 
+    x = response.json()
 
-    z = x["weather"] 
-    weather_description = z[0]["description"]
-    ids = z[0]["id"] 
+    if x["cod"] != "404":
+        y = x["main"]
+        b = x["wind"]
+        
+        wind_speed = b["speed"]
+        feels_temperature = y["feels_like"]
+        current_temperature = y["temp"]# [] is keys() method to call/add something
+        current_pressure = y["pressure"] 
+        current_humidity = y["humidity"] 
 
-    print(" Temperature (in celsius unit) = " +
-                    str(current_temperature) +
-        "\n Feels like(in celsisu unit) = " +
-                    str(feels_temperature) +
-        "\n atmospheric pressure (in Pa unit) = " +
-                    str(current_pressure) +
-        "\n humidity (in percentage) = " +
-                    str(current_humidiy) +
-        "\n description = " +
-                    str(weather_description)+
-        "\n wind_speed(in meters/sec) = " +
-                    str(wind_speed) +
-        "\n id of des = "+
-                    str(ids)  )
-else:
-    print(" City Not Found ")
+        z = x["weather"] 
+        weather_description = z[0]["description"]
+        ids = z[0]["id"] 
 
-def weather_condition():
-    query = ids
-    print(f"[weather_id]: {query}")
-    return query
+        print(f' Temperature (in celsius unit) = {current_temperature} '
+            f'Feels like(in celsisu unit) =  {feels_temperature}'
+            f'atmospheric pressure (in Pa unit) = {current_pressure}'
+            f'humidity (in percentage) = {current_humidity}'
+            f'description = {weather_description}'
+            f'wind_speed(in meters/sec) = {wind_speed}'
+            f'id of des = {ids}')
+    else:
+        print(" City Not Found ")
+    return {
+        "wind_speed":wind_speed,
+        "ids":ids,
+        "temperature":current_temperature,
+        "feels_temperature":feels_temperature,
+        "current_pressure":current_pressure,
+        "current_humidity":current_humidity,
+        "weather_description":weather_description
+    }
 
-def temperature_condition():
-    temp = current_temperature
-    print(f"[temperature]: {temp}")
-    return temp
+# def weather_condition():
+#     query = weather_city().ids
+#     print(f"[weather_id]: {query}")
+#     return query
 
-temp = int(temperature_condition())
-query = int(weather_condition())
+# def temperature_condition():
+#     temp = weather_city().current_temperature
+#     print(f"[temperature]: {temp}")
+#     return temp
+
+temp = weather_city(city_name).temperature
+query = weather_city(city_name).ids
 
 index = temp//5
 weather_message_map = weatherMappingMessage.weather_message_dict
