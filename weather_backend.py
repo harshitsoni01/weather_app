@@ -3,11 +3,12 @@
 import requests, json 
 import weatherMappingMessage
 from keys import *
+from app import dress
 
-base_url = "http://api.openweathermap.org/data/2.5/weather?"
-
+city_name = dress().cityname
 
 def weather_city(city_name):
+    base_url = "http://api.openweathermap.org/data/2.5/weather?"
     complete_url = base_url + "appid=" + api_key + "&q=" + city_name + "&units=metric" 
     response = requests.get(complete_url) 
 
@@ -56,8 +57,8 @@ def weather_city(city_name):
 #     print(f"[temperature]: {temp}")
 #     return temp
 
-temp = weather_city(city_name).temperature
-query = weather_city(city_name).ids
+temp = weather_city(city_name)["temperature"]
+query = weather_city(city_name)["ids"]
 
 index = temp//5
 weather_message_map = weatherMappingMessage.weather_message_dict
