@@ -2,14 +2,11 @@
 # 60 calls/min and 1,000,000 calls/month
 import requests, json 
 import weatherMappingMessage
-from keys import *
-from app import dress
-
-city_name = dress().cityname
+import keys
 
 def weather_city(city_name):
     base_url = "http://api.openweathermap.org/data/2.5/weather?"
-    complete_url = base_url + "appid=" + api_key + "&q=" + city_name + "&units=metric" 
+    complete_url = base_url + "appid=" + keys.api_key + "&q=" + city_name + "&units=metric" 
     response = requests.get(complete_url) 
 
     x = response.json()
@@ -57,15 +54,14 @@ def weather_city(city_name):
 #     print(f"[temperature]: {temp}")
 #     return temp
 
-temp = weather_city(city_name)["temperature"]
-query = weather_city(city_name)["ids"]
 
-index = temp//5
-weather_message_map = weatherMappingMessage.weather_message_dict
-weather_message = ""
+def clothes(city_name):
+    weather_message_map = weatherMappingMessage.weather_message_dict
+    weather_message = ""
 
-
-def clothes():
+    temp = weather_city(city_name)["temperature"]
+    index = temp//5
+    query = weather_city(city_name)["ids"]
     if query in range(200,203) or query in range(230,233):#thunderstorm1 with rain
         if index in weather_message_map:
             weather_message = weather_message_map[index] + "\nWear Gum Boots and Carry an umbrella"
@@ -214,5 +210,3 @@ def clothes():
 
 # # if gender == "man" or gender == "male" or gender == "m" or gender == "men":
 # #     men_clothes()
-
-clothes()
