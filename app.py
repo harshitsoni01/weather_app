@@ -7,7 +7,7 @@ app.config["SECRET_KEY"] = "Secret-key"
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("index1.html")
 
 
 @app.route("/dress", methods=['POST'])
