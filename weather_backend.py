@@ -4,26 +4,26 @@ import requests, json
 import weatherMappingMessage
 import keys
 
-def weather_city(city_name):
+def get_weather(city_name):
     base_url = "http://api.openweathermap.org/data/2.5/weather?"
     complete_url = base_url + "appid=" + keys.api_key + "&q=" + city_name + "&units=metric" 
-    response = requests.get(complete_url) 
+    api_response = (requests.get(complete_url)).json()
 
-    x = response.json()
+    print("api_response", api_response)
 
-    if x["cod"] != "404":
-        y = x["main"]
-        b = x["wind"]
-        
-        wind_speed = b["speed"]
-        feels_temperature = y["feels_like"]
-        current_temperature = y["temp"]# [] is keys() method to call/add something
-        current_pressure = y["pressure"] 
-        current_humidity = y["humidity"] 
+    try:
+        weather_values = api_response["main"]
+        current_temperature = weather_values["temp"]# [] is keys() method to call/add something
+        current_pressure = weather_values["pressure"] 
+        current_humidity = weather_values["humidity"]
+        feels_temperature = weather_values["feels_like"]
 
-        z = x["weather"] 
-        weather_description = z[0]["description"]
-        ids = z[0]["id"] 
+        wind = api_response["wind"]
+        wind_speed = wind["speed"]
+
+        weather_desc = api_response["weather"] 
+        weather_description = weather_desc[0]["description"]
+        ids = weather_desc[0]["id"]
 
         print(f' Temperature (in celsius unit) = {current_temperature} '
             f'Feels like(in celsisu unit) =  {feels_temperature}'
@@ -32,170 +32,164 @@ def weather_city(city_name):
             f'description = {weather_description}'
             f'wind_speed(in meters/sec) = {wind_speed}'
             f'id of des = {ids}')
-    else:
-        print(" City Not Found ")
+
+    except requests.exceptions.HTTPError as e:
+        if e.response.cod == 400:
+            print(e)
+            pass  
     return {
         "wind_speed":wind_speed,
         "ids":ids,
         "temperature":current_temperature,
         "feels_temperature":feels_temperature,
-        "current_pressure":current_pressure,
-        "current_humidity":current_humidity,
-        "weather_description":weather_description
+        "pressure":current_pressure,
+        "humidity":current_humidity,
+        "weather_description":weather_description,
     }
 
-# def weather_condition():
-#     query = weather_city().ids
-#     print(f"[weather_id]: {query}")
-#     return query
 
-# def temperature_condition():
-#     temp = weather_city().current_temperature
-#     print(f"[temperature]: {temp}")
-#     return temp
-
-
-def clothes(city_name):
+def get_attire(weather_response):
     weather_message_map = weatherMappingMessage.weather_message_dict
     weather_message = ""
 
-    temp = weather_city(city_name)["temperature"]
+    print("weather response", weather_response)
+    temp = weather_response["temperature"]
     index = temp//5
-    query = weather_city(city_name)["ids"]
-    if query in range(200,203) or query in range(230,233):#thunderstorm1 with rain
+    ids = weather_response["ids"]
+    if ids in range(200,203) or ids in range(230,233):#thunderstorm1 with rain
         if index in weather_message_map:
             weather_message = weather_message_map[index] + "\nWear Gum Boots and Carry an umbrella"
             print(weather_message) 
         else:
             print("WARNING!! DON'T GO OUT!!"
                     "\n Protect yourself from the extreme temperature.")
-    elif query in range(210, 212):#thunderstorm2
+    elif ids in range(210, 212):#thunderstorm2
         if index in weather_message_map:
             weather_message = weather_message_map[index] + "\nCarry a Umbrella" 
             print(weather_message)
         else:
             print("WARNING!! DON'T GO OUT!!"
                     "\n Protect yourself from the extreme temperature.")
-    elif query in range(212, 222):#thunderstorm3
+    elif ids in range(212, 222):#thunderstorm3
         if index in weather_message_map:
             weather_message = "WARNING!Heavy thunderstorm outside.\n You might be more safe inside.\n Stay inside for atleast 30 minutes after the last strike." + weather_message_map[index] + "Carry a Umbrella"
             print(weather_message)
         else:
             print("WARNING!! DON'T GO OUT!!"
                     "\n Protect yourself from the extreme temperature.")
-    elif query in range(300, 312):#drizzle decreases visibility more rain 
+    elif ids in range(300, 312):#drizzle decreases visibility more rain 
         if index in weather_message_map:
             weather_message = weather_message_map[index] + "\nCarry a Umbrella" 
             print(weather_message)
         else:
             print("WARNING!! DON'T GO OUT!!"
                     "\n Protect yourself from the extreme temperature.")
-    elif query in range(312, 322):#heavy drizzle
+    elif ids in range(312, 322):#heavy drizzle
         if index in weather_message_map:
             weather_message = weather_message_map[index] + "\nCarry a Umbrella.\nWear Gum Boots" 
             print(weather_message)
         else:
             print("WARNING!! DON'T GO OUT!!"
                     "\n Protect yourself from the extreme temperature.")
-    elif query in range(500, 502) or query in range(520,522):#rain 
+    elif ids in range(500, 502) or ids in range(520,522):#rain 
         if index in weather_message_map:
             weather_message = weather_message_map[index] + "\nCarry a Umbrella" 
             print(weather_message)
         else:
             print("WARNING!! DON'T GO OUT!!"
                     "\n Protect yourself from the extreme temperature.")
-    elif query in range(502, 505) or query in range(522,532):#heavy rain and shower 
+    elif ids in range(502, 505) or ids in range(522,532):#heavy rain and shower 
         if index in weather_message_map:
             weather_message = weather_message_map[index] + "\nCarry a Umbrella" 
             print(weather_message)
         else:
             print("WARNING!! DON'T GO OUT!!"
                     "\n Protect yourself from the extreme temperature.")
-    elif query == 511 or query in range(611, 614):#Freezing rain and sleet
+    elif ids == 511 or ids in range(611, 614):#Freezing rain and sleet
         if index in weather_message_map:
             weather_message = weather_message_map[index] + "\nCarry a Umbrella and a windcheater.\n Wear Gum Boots" 
             print(weather_message)
         else:
             print("WARNING!! DON'T GO OUT!!"
                     "\n Protect yourself from the extreme temperature.")
-    elif query in range(600, 602) or query in range(615, 621):#Snow
+    elif ids in range(600, 602) or ids in range(615, 621):#Snow
         if index in weather_message_map:
             weather_message = weather_message_map[index] + "\nCarry a Umbrella" 
             print(weather_message)
         else:
             print("WARNING!! DON'T GO OUT!!"
                     "\n Protect yourself from the extreme temperature.")
-    elif query == 602 or query == 622:#Heavy snow 
+    elif ids == 602 or ids == 622:#Heavy snow 
         if index in weather_message_map:
             weather_message = weather_message_map[index] + "\nCarry a Umbrella" 
             print(weather_message)
         else:
             print("WARNING!! DON'T GO OUT!!"
                     "\n Protect yourself from the extreme temperature.")
-    elif query == 701:#mist 
+    elif ids == 701:#mist 
         if index in weather_message_map:
             weather_message = weather_message_map[index]
             print(weather_message)
         else:
             print("WARNING!! DON'T GO OUT!!"
                     "\n Protect yourself from the extreme temperature.")
-    elif query == 741:#fog
+    elif ids == 741:#fog
         if index in weather_message_map:
             weather_message = weather_message_map[index] + "\nVisibility of your surrounding is subpar."
             print(weather_message)
         else:
             print("WARNING!! DON'T GO OUT!!"
                     "\n Protect yourself from the extreme temperature.")
-    elif query == 711:#smog 
+    elif ids == 711:#smog 
         if index in weather_message_map:
             weather_message = weather_message_map[index] + "\nProtect your eyes and nose when going out."
             print(weather_message)
         else:
             print("WARNING!! DON'T GO OUT!!"
                     "\n Protect yourself from the extreme temperature.")
-    elif query == 721:#Haze 
+    elif ids == 721:#Haze 
         if index in weather_message_map:
             weather_message = weather_message_map[index] + "\nvisibility around your area is sub par"
             print(weather_message)
         else:
             print("WARNING!! DON'T GO OUT!!"
                     "\n Protect yourself from the extreme temperature.")
-    elif query == 731 or query == 751 or query == 761:#dust/sand 
+    elif ids == 731 or ids == 751 or ids == 761:#dust/sand 
         if index in weather_message_map:
             weather_message = weather_message_map[index] + "\nProtect your eyes and nose when going out.\nDust and sand in the atmosphere."
             print(weather_message)
         else:
             print("WARNING!! DON'T GO OUT!!"
                     "\n Protect yourself from the extreme temperature.")
-    elif query == 762:#volanic ash
+    elif ids == 762:#volanic ash
         if index in weather_message_map:
             weather_message = "WARNING! Don't go out.\n volanic ash in your surrounding."+weather_message_map[index] + "\nvisibility around your area is sub par"
             print(weather_message)
         else:
             print("WARNING!! DON'T GO OUT!!"
                     "\n Protect yourself from the extreme temperature.")
-    elif query == 771:#squall 
+    elif ids == 771:#squall 
         if index in weather_message_map:
             weather_message = "Expect precipitation" + weather_message_map[index] + "\nHigh speed winds.\nWear protective gears."
             print(weather_message)
         else:
             print("WARNING!! DON'T GO OUT!!"
                     "\n Protect yourself from the extreme temperature.")
-    elif query == 781:#tornado 
+    elif ids == 781:#tornado 
         if index in weather_message_map:
             weather_message = "WARNING!Don't go out." + weather_message_map[index] + "\nWear neccessary gears"
             print(weather_message)
         else:
             print("WARNING!! DON'T GO OUT!!"
                     "\n Protect yourself from the extreme temperature.")
-    elif query in range(800, 803):#clear/10-40clouds
+    elif ids in range(800, 803):#clear/10-40clouds
         if index in weather_message_map:
             weather_message = weather_message_map[index]
             print(weather_message)
         else:
             print("WARNING!! DON'T GO OUT!!"
                     "\n Protect yourself from the extreme temperature.")
-    elif query in range(803,805):
+    elif ids in range(803,805):
         if index in weather_message_map:
             weather_message = weather_message_map[index] + "\nCloud surrounding."
             print(weather_message)
