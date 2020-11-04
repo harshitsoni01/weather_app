@@ -6,11 +6,27 @@ app.config["SECRET_KEY"] = "Secret-key"
 
 
 @app.route("/")
+@app.route("/index")
 def index():
-    return render_template("index1.html")
+    return render_template("index.html")
 
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
 
-@app.route("/dress", methods=['POST'])
+@app.route("/news")
+def news():
+    return render_template("news.html")
+
+@app.route("/photos")
+def photos():
+    return render_template("photos.html")
+
+@app.route("/single")
+def single():
+    return render_template("single.html")
+
+@app.route("/dress", methods=['POST','GET'])
 def dress():
     city_name = request.form.get("city_name")
     app.logger.info(f'city name={city_name}')

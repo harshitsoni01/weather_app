@@ -1,6 +1,7 @@
 keys.py
 env_weather/
 .vscode
+env/
 
 *.pyc
 __pycache__/
