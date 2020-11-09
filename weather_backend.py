@@ -24,14 +24,15 @@ def get_weather(city_name):
         weather_desc = api_response["weather"] 
         weather_description = weather_desc[0]["description"]
         ids = weather_desc[0]["id"]
-
+        icons = weather_desc[0]["icon"]
         print(f' Temperature (in celsius unit) = {current_temperature} '
             f'Feels like(in celsisu unit) =  {feels_temperature}'
             f'atmospheric pressure (in Pa unit) = {current_pressure}'
             f'humidity (in percentage) = {current_humidity}'
             f'description = {weather_description}'
             f'wind_speed(in meters/sec) = {wind_speed}'
-            f'id of des = {ids}')
+            f'id of des = {ids}'
+            f'icon = {icons}')
 
     except requests.exceptions.HTTPError as e:
         if e.response.cod == 400:
@@ -45,6 +46,7 @@ def get_weather(city_name):
         "pressure":current_pressure,
         "humidity":current_humidity,
         "weather_description":weather_description,
+        "icons":icons,
     }
 
 

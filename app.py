@@ -35,8 +35,9 @@ def dress():
     temp = result["temperature"]
     feels = result["feels_temperature"]
     description = result["weather_description"]
+    icon = result["icons"]
     message = str(get_attire(result))
-    return render_template("dress.html", wind=wind, cityname=city_name, message=message, temp=temp, feels_temperature=feels, weather_description=description)
+    return render_template("dress.html", wind=wind, cityname=city_name, message=message, temp=temp, feels_temperature=feels, weather_description=description, icon = icon)
 
 
 if __name__ == "__main__":
