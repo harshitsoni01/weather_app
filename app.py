@@ -26,7 +26,7 @@ def photos():
 def single():
     return render_template("single.html")
 
-@app.route("/dress", methods=['POST','GET'])
+@app.route("/landing_page", methods=['POST','GET'])
 def dress():
     city_name = request.form.get("city_name")
     app.logger.info(f'city name={city_name}')
@@ -37,7 +37,7 @@ def dress():
     description = result["weather_description"]
     icon = result["icons"]
     message = str(get_attire(result))
-    return render_template("dress.html", wind=wind, cityname=city_name, message=message, temp=temp, feels_temperature=feels, weather_description=description, icon = icon)
+    return render_template("landing_page.html", wind=wind, cityname=city_name, message=message, temp=temp, feels_temperature=feels, weather_description=description, icon = icon)
 
 
 if __name__ == "__main__":
