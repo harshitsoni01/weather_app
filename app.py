@@ -25,7 +25,7 @@ def photos():
 def single():
     return render_template("single.html")
 
-@app.route("/")
+@app.route("/", methods=['GET','POST'])
 @app.route("/landing_page", methods=['GET','POST'])
 def dress():
     city_name = request.form.get("city_name")
