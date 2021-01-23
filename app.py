@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect
 from weather_backend import get_weather, get_attire
+import csv
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "Secret-key"
@@ -9,8 +10,25 @@ app.config["SECRET_KEY"] = "Secret-key"
 def index():
     return render_template("index.html")
 
-@app.route("/contact")
+@app.route("/contact", methods=['GET', 'POST'])
 def contact():
+    if request.method == "POST":
+        emails = request.form.get("emails")
+        names = request.form.get("names")
+        message = request.form.get("message")
+        if message is not None:
+            with open('user_data/feedback_form.csv', mode='a') as file_:
+                file_.write("Email: {}, Names: {}, Message: {}".format(emails,names,message))
+                file_.write("\n")
+
+        Email = request.form.get("Email")
+        if Email is not None:
+            with open('user_data/sub_email.csv', mode='a') as file_:
+                file_.write("Email:{}".format(Email))
+                file_.write("\n")
+
+        return redirect(request.url)
+
     return render_template("contact.html")
 
 @app.route("/news")
@@ -32,13 +50,20 @@ def dress():
     app.logger.info(f'city name={city_name}')
     result = get_weather(city_name)
     humid = result["humidity"]
-    wind = result["wind_speed"]
-    temp = result["temperature"]
+    wind_speed = result["wind_speed"]
+    wind_direction = result["wind_direction"]
+    temp = int(result["temperature"])
     feels = result["feels_temperature"]
     description = result["weather_description"]
     icon = result["icons"]
     message = str(get_attire(result))
-    return render_template("landing_page.html", wind=wind, cityname=city_name, message=message, temp=temp, humid=humid,feels_temperature=feels, weather_description=description, icon = icon)
+    email = request.form.get("email")
+    if email is not None:
+        with open('user_data/sub_email.csv', mode='a') as file_:
+                file_.write("Email:{}".format(email))
+                file_.write("\n")
+
+    return render_template("landing_page.html", wind_speed=wind_speed, wind_direction=wind_direction, cityname=city_name, message=message, temp=temp, humid=humid,feels=feels, weather_description=description, icon = icon)
 
 
 if __name__ == "__main__":

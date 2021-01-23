@@ -20,6 +20,7 @@ def get_weather(city_name):
 
         wind = api_response["wind"]
         wind_speed = wind["speed"]
+        wind_direction = wind["deg"]
 
         weather_desc = api_response["weather"] 
         weather_description = weather_desc[0]["description"]
@@ -31,6 +32,7 @@ def get_weather(city_name):
             f'humidity (in percentage) = {current_humidity}'
             f'description = {weather_description}'
             f'wind_speed(in meters/sec) = {wind_speed}'
+            f'wind_direction(in deg) = {wind_direction}'
             f'id of des = {ids}'
             f'icon = {icons}')
 
@@ -40,6 +42,7 @@ def get_weather(city_name):
             pass  
     return {
         "wind_speed":wind_speed,
+        "wind_direction":wind_direction,
         "ids":ids,
         "temperature":current_temperature,
         "feels_temperature":feels_temperature,

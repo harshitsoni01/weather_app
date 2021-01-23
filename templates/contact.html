@@ -54,7 +54,7 @@
 			<main class="main-content">
 				<div class="container">
 					<div class="breadcrumb">
-						<a href="landing_page.html">Home</a>
+						<a href="{{ url_for('dress') }}">Home</a>
 						<span>Contact</span>
 					</div>
 				</div>
@@ -63,7 +63,9 @@
 					<div class="container">
 						<div class="col-md-5">
 							<div class="contact-details">
-								<div class="map" data-latitude="-6.897789" data-longitude="107.621735"></div>
+								<div class="map" data-latitude="19.0760" data-longitude="72.8777">
+									<img src="https://maps.googleapis.com/maps/api/staticmap?size=700x300&markers=mumbai" alt="map of ${place_name}">
+								</div>
 								<div class="contact-info">
 									<address>
 										<img src="{{ url_for('static', filename='images/icon-marker.png') }}" alt="">
@@ -78,17 +80,22 @@
 						</div>
 						<div class="col-md-6 col-md-offset-1">
 							<h2 class="section-title">Contact us</h2>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi consectetur inventore ducimus, facilis, numquam id soluta omnis eius recusandae nesciunt vero repellat harum cum. Nisi facilis odit hic, ipsum sed!</p>
-							<form action="#" class="contact-form">
+							<p>Contact us for any difficulties.</p>
+							<p>Feedback form</p>
+							<form action="/contact" method="POST" class="contact-form">
 								<div class="row">
-									<div class="col-md-6"><input type="text" placeholder="Your name..."></div>
-									<div class="col-md-6"><input type="text" placeholder="Email Addresss..."></div>
+									<div class="col-md-6">
+										<input type="text" name= "names" placeholder="Your name...">
+									</div>
+									<div class="col-md-6">
+										<input type="email" name= "emails" placeholder="Email Addresss...">
+									</div>
 								</div>
-								<div class="row">
+								<!-- <div class="row">
 									<div class="col-md-6"><input type="text" placeholder="Company name..."></div>
 									<div class="col-md-6"><input type="text" placeholder="Website..."></div>
-								</div>
-								<textarea name="" placeholder="Message..."></textarea>
+								</div> -->
+								<textarea name= "message" type= "text" placeholder="Message..."></textarea>
 								<div class="text-right">
 									<input type="submit" placeholder="Send message">
 								</div>
@@ -104,8 +111,8 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-8">
-							<form action="#" class="subscribe-form">
-								<input type="text" placeholder="Enter your email to subscribe...">
+							<form action="/contact" class="subscribe-form" method="POST">
+								<input type="text" name="Email" placeholder="Enter your email to subscribe...">
 								<input type="submit" value="Subscribe">
 							</form>
 						</div>

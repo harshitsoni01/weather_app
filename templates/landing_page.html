@@ -80,9 +80,9 @@
 										<img src="{{ url_for('static', filename='images/icons/icon-1.svg') }}" alt="icon-1" width=90>
 									</div>	
 								</div>
-								<span><img src="{{ url_for('static', filename='images/icon-umberella.png') }}" alt="">{{ humid }}</span>
-								<span><img src="{{ url_for('static', filename='images/icon-wind.png') }}" alt="">{{ wind }}km/h</span>
-								<span><img src="{{ url_for('static', filename='images/icon-compass.png') }}" alt="">East</span>
+								<span><img src="{{ url_for('static', filename='images/icon-water.png') }}" height="23" width="21"alt="">{{ humid }}</span>
+								<span><img src="{{ url_for('static', filename='images/icon-wind.png') }}" alt="">{{ wind_speed }}km/h</span>
+								<span><img src="{{ url_for('static', filename='images/icon-compass.png') }}" alt="">{{ wind_direction }}</span>
 							</div>
 						</div>
 						<div class="forecast">
@@ -91,6 +91,8 @@
 							</div>
 							<div class="forecast-content">
 								<p>{{ weather_description }}.</p>
+								<p>Feels like</p>
+								<p>{{ feels }}<sup>o</sup>C</p>
 							</div>
 						</div>
 						<div class="forecast">
@@ -119,7 +121,7 @@
 									<!--	<p>Doloremque laudantium totam rem aperiam Inventore veritatis et quasi architecto beatae vitae.</p> -->
 									</li>
 									<li>
-										<h3>And great Dress Recommendations everyday.</h3>
+										<h3>Give you great Dress Recommendations daily.</h3>
 									<!--	<p>Doloremque laudantium totam rem aperiam Inventore veritatis et quasi architecto beatae vitae.</p> -->
 									</li>
 									<li>
@@ -132,7 +134,7 @@
 								<h2 class="section-title">Weather analysis</h2>
 								<ul class="arrow-list">
 									<li><a href="https://openweathermap.org/">Provided by openweathermap</a></li>
-									<li><a href="#">Eaque ipsa quae ab illo inventore veritatis quasi</a></li>
+									<!-- <li><a href="">Eaque ipsa quae ab illo inventore veritatis quasi</a></li> -->
 								</ul>
 							</div>
 							<!-- <div class="col-md-4">
@@ -158,8 +160,8 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-8">
-							<form action=" " class="subscribe-form">
-								<input type="text" placeholder="Enter your email to subscribe...">
+							<form action="/landing_page" class="subscribe-form" method="POST">
+								<input type="text" name="email" placeholder="Enter your email to subscribe...">
 								<input type="submit" value="Subscribe">
 							</form>
 						</div>
@@ -167,7 +169,7 @@
 							<div class="social-links">
 								<a href="https://linkedin.com/in/harshitsoni01"><i class="fa fa-linkedin"></i></a>
 								<a href="https://github.com/harshitsoni01"><i class="fa fa-github"></i></a>
-								<a href = "mailto:soniharshit2000@gmail.com?subject = Feedback&body = Message"><i class="fa fa-envelope"></i></a>
+								<a href ="mailto:soniharshit2000@gmail.com?subject = Feedback&body = Message"><i class="fa fa-envelope"></i></a>
 								<a href="https://harshitsoni01.github.io/"><i class="fa fa-user"></i></a>
 							</div>
 						</div>
